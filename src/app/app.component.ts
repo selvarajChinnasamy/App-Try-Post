@@ -1,8 +1,7 @@
 import { Component } from '@angular/core';
-import { Http, Headers, RequestOptions } from '@angular/http';
-import { Data } from './dataFormet';
-import 'rxjs/add/operator/map';
-import{ DataService } from'./data.service';
+import { HttpClient } from '@angular/common/http';
+import { DataService } from './data.service';
+
 
 
 @Component({
@@ -11,11 +10,11 @@ import{ DataService } from'./data.service';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'app';
-  Book:Array<any>=[];
-  constructor(private _dataService: DataService){
-   this._dataService.dataCheck().subscribe(res=>{
-     this.Book=res.data;
-   });
+  data:Array<any>=[];
+  constructor(private http: HttpClient, private dataservice: DataService){
+   this.dataservice.getData().subscribe(res => {
+    console.log(res.data);
+    this.data=res.data;
+  });
   }
 }

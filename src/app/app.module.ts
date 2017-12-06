@@ -17,11 +17,11 @@ import { AuthInterceptor } from './auth.interseptor';
   ],
   providers: [
     DataService,
-    {
-      provide: HTTP_INTERCEPTORS,
-      useClass:AuthInterceptor,
-      multi: true
-    }
+    // {
+    //   provide: HTTP_INTERCEPTORS,
+    //   useClass:AuthInterceptor,
+    //   multi: true
+    // }
   ],
   bootstrap: [AppComponent]
 })

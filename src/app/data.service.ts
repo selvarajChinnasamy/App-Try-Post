@@ -1,10 +1,8 @@
 import { Injectable } from '@angular/core';
-import { Data } from './dataFormet';
+import { Post } from './dataFormet';
 import { HttpClient } from '@angular/common/http';
 
-interface Post {
-  data:Array<any>;
- };
+
 
 @Injectable()
 export class DataService {

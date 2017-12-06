@@ -1,4 +1,3 @@
-export class Data{
-    name:String;
-    id:number;
-}
+export class Post {
+    data:Array<any>;
+   };

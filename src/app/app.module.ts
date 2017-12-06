@@ -4,6 +4,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { DataService } from './data.service';
 
 import { AppComponent } from './app.component';
+import { HTTP_INTERCEPTORS } from '@angular/common/http/src/interceptor';
+import { AuthInterceptor } from './auth.interseptor';
 
 @NgModule({
   declarations: [
@@ -13,7 +15,14 @@ import { AppComponent } from './app.component';
     BrowserModule,
     HttpClientModule,
   ],
-  providers: [DataService],
+  providers: [
+    DataService,
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass:AuthInterceptor,
+      multi: true
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
